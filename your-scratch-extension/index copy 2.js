@@ -5,11 +5,8 @@ const TargetType = require('../../extension-support/target-type');
 class Scratch3YourExtension {
 
     constructor (runtime) {
-        import('syllable')
-          .then((syllableModule) => {
-            this.syllable = syllableModule.syllable;
-          });
-      }
+        // put any setup for your extension here
+    }
 
     /**
      * Returns the metadata about your extension.
@@ -47,27 +44,7 @@ class Scratch3YourExtension {
                   type: ArgumentType.NUMBER
                 }
               }
-            },
-            {
-                // function where your code logic lives
-                opcode: 'mySecondBlock',
-        
-                // type of block
-                blockType: BlockType.REPORTER,
-        
-                // label to display on the block
-                text: 'Syllables in [MY_TEXT]',
-        
-                // arguments used in the block
-                arguments: {
-                  MY_TEXT: {
-                    defaultValue: 'Hello World',
-        
-                    // type/shape of the parameter
-                    type: ArgumentType.STRING
-                  }
-                }
-              }              
+            }
           ]
         };
       }
@@ -89,10 +66,6 @@ class Scratch3YourExtension {
           .then((bookinfo) => {
             return bookinfo.title;
         });
-    }
-
-    mySecondBlock ({ MY_TEXT }) {
-        return this.syllable(MY_TEXT);
     }
 }
 
